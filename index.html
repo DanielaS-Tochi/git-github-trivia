@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trivia Git & GitHub</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+</head>
+<body>
+  <div class="container">
+    <h1>Trivia: Git & GitHub</h1>
+
+    <div id="start-screen">
+      <input type="text" id="player-name" placeholder="Escribe tu nombre" />
+      <button onclick="startGame()">Comenzar</button>
+    </div>
+
+    <div id="quiz" class="hidden">
+      <div id="question"></div>
+      <div id="options"></div>
+      <button onclick="nextQuestion()">Siguiente</button>
+    </div>
+
+    <div id="result" class="hidden">
+      <h2>¡Juego terminado!</h2>
+      <p id="score"></p>
+      <button onclick="showRanking()">Ver Ranking</button>
+      <button onclick="restartGame()">Volver a jugar</button>
+    </div>
+
+    <div id="ranking" class="hidden">
+      <h2>Top 10</h2>
+      <ul id="ranking-list"></ul>
+      <button onclick="goToStart()">Volver al inicio</button>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="ranking.js"></script>
+  <script src="script.js"></script>
+
+  <footer>
+    <p>🛠️ Proyecto educativo y colaborativo sobre Git & GitHub. No afiliado con GitHub Inc.</p>
+    <p>❤️ Hecho con cariño por Daniela Silvana Tochi y compañerxs. ¡Sumate!</p>
+  </footer>
+  
+</body>
+</html>

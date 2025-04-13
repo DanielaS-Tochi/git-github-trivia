@@ -25,13 +25,11 @@ Reforzar conocimientos de Git y GitHub mediante una trivia simple y accesible pa
 
 ## 📁 Estructura del proyecto
 
-/git-github-trivia │ 
-├── index.html // Estructura del juego 
-├── style.css // Estilos personalizados 
-├── script.js // Lógica del juego 
-├── questions.js // Preguntas y respuestas 
-├── ranking.js // Gestión del ranking 
-└── README.md // Este archivo 🙂
+- 📄 `index.html`: Estructura del juego.
+- 🎨 `style.css`: Estilos visuales y responsive.
+- 🧠 `script.js`: Lógica del juego.
+- ❓ `questions.js`: Preguntas y respuestas.
+- 🏆 `ranking.js`: Ranking guardado en el navegador.
 
 ---
 
