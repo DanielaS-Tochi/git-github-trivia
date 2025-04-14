@@ -40,7 +40,7 @@ body {
   
   button {
     padding: 10px 20px;
-    margin: 10px 5px;
+    margin: 10px 0; /* Márgenes uniformes arriba y abajo */
     font-size: 1rem;
     border: none;
     border-radius: 6px;
@@ -48,7 +48,7 @@ body {
     color: white;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    align-content: flex-end;
+    width: auto; /* Ajusta el ancho al contenido */
   }
   
   button:hover {
@@ -62,17 +62,20 @@ body {
   
   #options {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center; /* Centra las opciones horizontalmente */
+    gap: 10px; /* Espaciado entre las opciones */
     margin: 20px 0;
   }
   
   .correct {
-    background-color: #238636;
+    background-color: #238636; /* Verde */
+    color: white;
   }
   
   .incorrect {
-    background-color: #da3633;
+    background-color: #da3633; /* Rojo */
+    color: white;
   }
   
   .hidden {
@@ -105,6 +108,12 @@ body {
     border-radius: 0 0 12px 12px;
   }
  
+  #feedback {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #c9d1d9;
+  }
   
   @media (max-width: 500px) {
     .container {
@@ -118,4 +127,26 @@ body {
     #options {
       flex-direction: column;
     }
+  }
+
+  /* Alinear el botón "Siguiente" a la derecha */
+  #quiz {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #quiz button {
+    align-self: flex-end; /* Alinea el botón a la derecha */
+  }
+
+  /* Centrar los botones en la pantalla de resultados */
+  #result button,
+  #ranking button {
+    display: inline-block;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  #result {
+    text-align: center;
   }

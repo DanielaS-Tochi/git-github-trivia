@@ -33,21 +33,42 @@ function showQuestion() {
 
 function checkAnswer(selected) {
   const correct = questions[currentQuestion].answer;
+
+  // Deshabilitar todos los botones
+  document.querySelectorAll("#options button").forEach(btn => {
+    btn.disabled = true;
+
+    // Resaltar la respuesta correcta
+    if (btn.textContent === correct) {
+      btn.classList.add("correct");
+    } else if (btn.textContent === selected) {
+      // Resaltar la respuesta seleccionada si es incorrecta
+      btn.classList.add("incorrect");
+    }
+  });
+
+  // Incrementar el puntaje si la respuesta es correcta
   if (selected === correct) {
     score++;
   }
 
-  document.querySelectorAll("#options button").forEach(btn => {
-    btn.disabled = true;
-    if (btn.textContent === correct) {
-      btn.classList.add("correct");
-    } else {
-      btn.classList.add("incorrect");
-    }
-  });
+  // Mostrar mensaje de retroalimentación
+  const feedback = document.createElement("p");
+  feedback.id = "feedback";
+  feedback.textContent =
+    selected === correct
+      ? "¡Correcto! 🎉"
+      : `Incorrecto. La respuesta correcta es: ${correct}`;
+  document.getElementById("quiz").appendChild(feedback);
 }
 
 function nextQuestion() {
+  // Eliminar el mensaje de retroalimentación si existe
+  const feedback = document.getElementById("feedback");
+  if (feedback) {
+    feedback.remove();
+  }
+
   currentQuestion++;
   if (currentQuestion < questions.length) {
     showQuestion();
@@ -85,12 +106,12 @@ function showRanking() {
   document.getElementById("ranking").classList.remove("hidden");
 
   const scores = JSON.parse(localStorage.getItem("triviaScores")) || [];
-  scores.sort((a, b) => b.score - a.score);
-  const top10 = scores.slice(0, 10);
+  scores.sort((a, b) => b.score - a.score); // Ordenar por puntaje descendente
+  const topScores = scores.slice(0, 10); // Mostrar solo los 10 primeros
 
   const list = document.getElementById("ranking-list");
   list.innerHTML = "";
-  top10.forEach((entry, index) => {
+  topScores.forEach((entry, index) => {
     const li = document.createElement("li");
     li.textContent = `${index + 1}. ${entry.name}: ${entry.score} pts`;
     list.appendChild(li);
