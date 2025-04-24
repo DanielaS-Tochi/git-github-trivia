@@ -150,3 +150,22 @@ body {
   #result {
     text-align: center;
   }
+
+  /* Decoración del Octocat */
+.octocat-deco {
+  position: fixed;
+  bottom: 0;
+  right: 0; /* Cambia a left: 0; si prefieres el lado izquierdo */
+  width: 120px;
+  opacity: 0.4;
+  pointer-events: none; /* Evita que interfiera con los clics */
+  z-index: 0; /* Asegura que quede detrás del contenido principal */
+}
+
+/* Octocat al lado del título */
+.octocat-title {
+  width: 50px; /* Ajusta el tamaño del Octocat */
+  margin-left: 10px; /* Espacio entre el título y el Octocat */
+  vertical-align: middle; /* Alinea el Octocat con el texto */
+}
+
